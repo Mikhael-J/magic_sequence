@@ -1,1 +1,4 @@
-# public_algo
+# public algo
+
+# python
+  • magique sequence
