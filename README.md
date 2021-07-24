@@ -1,5 +1,5 @@
 # public algo
 
-# python
-# • magique sequence
-#   ◦backtrack
+ **python**
+ - magique sequence
+   - backtrack
