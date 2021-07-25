@@ -14,6 +14,7 @@
 
 import sys
 import copy
+import doctest
 
 
 def backtrack(n: int, sequence: list[any], res: list[int] = [], depth: int = 0):
@@ -91,6 +92,7 @@ def somme_elem_lower_to_len(sequence: list[any]) -> bool:
 
 
 if __name__ == "__main__":
+
     try:
         nbElement = int(sys.argv[1])
     except:
@@ -98,5 +100,6 @@ if __name__ == "__main__":
             "no first arg given so number of element is initialized to 4 because it's the first one to give a answer"
         )
         nbElement = 4
+    doctest.testmod()
     res = backtrack(nbElement, [None for x in range(nbElement)])
     print(res)
