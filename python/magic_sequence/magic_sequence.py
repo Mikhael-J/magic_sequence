@@ -14,15 +14,16 @@
 
 import sys
 import copy
-import doctest
 
 
-def backtrack(n: int, sequence: list[any], res: list[int] = [], depth: int = 0):
+def backtrack(
+    nb_element: int, sequence: list[any], res: list[int] = [], depth: int = 0
+) -> list[int]:
     """
     this function return a list of solition
 
     Args:
-        n (int): number of element in the sequence
+        nb_element (int): number of element in the sequence
         sequence (list[any]): use for generete the solotion
         res (list[int], optional): empty list for recover the solution. Defaults to [].
         depth (int, optional): position in the three. Defaults to 0.
@@ -30,17 +31,16 @@ def backtrack(n: int, sequence: list[any], res: list[int] = [], depth: int = 0):
     Returns:
         list[int]: list of solution
     """
-
     # check if i not exceed the length of the sequence before check the magic sequence
     if depth == len(sequence):
         if check_magic_sequence(sequence):
             res.append(copy.deepcopy(sequence))
         return 0
-    for i in range(0, n):
+    for i in range(0, nb_element):
         # check filter for pass to the next step
         if somme_elem_lower_to_len(sequence):
             sequence[depth] = i
-            backtrack(n, copy.deepcopy(sequence), res, depth + 1)
+            backtrack(nb_element, copy.deepcopy(sequence), res, depth + 1)
         else:
             break
     return res
@@ -92,14 +92,12 @@ def somme_elem_lower_to_len(sequence: list[any]) -> bool:
 
 
 if __name__ == "__main__":
-
     try:
-        nbElement = int(sys.argv[1])
+        nb_element = int(sys.argv[1])
     except:
         print(
             "no first arg given so number of element is initialized to 4 because it's the first one to give a answer"
         )
-        nbElement = 4
-    doctest.testmod()
-    res = backtrack(nbElement, [None for x in range(nbElement)])
+        nb_element = 4
+    res = backtrack(nb_element, [None for x in range(nb_element)])
     print(res)
