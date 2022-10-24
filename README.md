@@ -1,4 +1,4 @@
-# public algo
+# magic sequence
 
  **python**
  - magique sequence
